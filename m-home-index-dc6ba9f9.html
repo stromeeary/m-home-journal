@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>JRS直播 · 杂志专题</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f0f2f5;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1e2a3a;
+      line-height: 1.65;
+      padding: 2rem 1.2rem;
+    }
+
+    .page-wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      background: #fafafa;
+      border-radius: 32px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04), 0 4px 10px rgba(0, 0, 0, 0.02);
+      overflow: hidden;
+      padding: 1.8rem 1.6rem 2.8rem;
+    }
+
+    /* 首页横幅 hero */
+    .hero {
+      text-align: center;
+      padding: 2.4rem 0.5rem 1.8rem;
+      border-bottom: 1px solid #e4e8ed;
+      margin-bottom: 2.2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 550;
+      letter-spacing: 0.01em;
+      background: linear-gradient(145deg, #1d2c3c, #324a5e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero .sub {
+      margin-top: 0.7rem;
+      color: #5e6f81;
+      font-size: 1rem;
+      font-weight: 350;
+      letter-spacing: 0.02em;
+    }
+
+    .hero .banner-tag {
+      display: inline-block;
+      background: #eef2f7;
+      padding: 0.25rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      color: #2c4058;
+      margin-top: 1rem;
+      border: 1px solid #dce2ea;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    }
+
+    /* 背景说明卡片 */
+    .bg-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.7rem 1.5rem;
+      margin-bottom: 2rem;
+      border: 1px solid #e2e7ee;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    }
+
+    .bg-card h2 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+      color: #1f3448;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .bg-card h2::before {
+      content: "▍";
+      font-weight: 300;
+      color: #6689a8;
+      font-size: 1.4rem;
+    }
+
+    .bg-card p {
+      color: #2e4055;
+      margin-bottom: 0.6rem;
+    }
+
+    .bg-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 自然介绍 - 三段卡片区 */
+    .intro-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.3rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .intro-card {
+      background: #ffffff;
+      flex: 1 1 240px;
+      border-radius: 22px;
+      padding: 1.6rem 1.3rem;
+      border: 1px solid #e1e6ed;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.01);
+      transition: box-shadow 0.2s;
+    }
+
+    .intro-card:hover {
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .intro-card .card-icon {
+      font-size: 1.6rem;
+      margin-bottom: 0.25rem;
+      color: #4f6b84;
+    }
+
+    .intro-card h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin: 0.25rem 0 0.6rem;
+      color: #1b3142;
+    }
+
+    .intro-card p {
+      font-size: 0.93rem;
+      color: #3b4f65;
+    }
+
+    /* 页尾访问提示 */
+    .footer-note {
+      margin-top: 2.2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #e3e8ef;
+      text-align: center;
+      font-size: 0.93rem;
+      color: #3d556d;
+    }
+
+    .footer-note a {
+      color: #1f3b57;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted #b3c3d6;
+      transition: border-color 0.15s;
+    }
+
+    .footer-note a:hover {
+      border-bottom: 1px solid #1f3b57;
+    }
+
+    .footer-note .fine-print {
+      display: block;
+      margin-top: 1rem;
+      font-size: 0.78rem;
+      color: #788b9e;
+    }
+
+    /* FAQ 摘要 (点缀) */
+    .faq-mini {
+      background: #f7f9fc;
+      border-radius: 20px;
+      padding: 1.2rem 1.4rem;
+      margin: 2.4rem 0 0.4rem;
+      border: 1px solid #e2e8f0;
+    }
+
+    .faq-mini h4 {
+      font-size: 1rem;
+      font-weight: 450;
+      color: #1a3148;
+      margin-bottom: 0.5rem;
+    }
+
+    .faq-mini details {
+      margin: 0.4rem 0;
+      font-size: 0.88rem;
+      color: #2a4059;
+    }
+
+    .faq-mini summary {
+      cursor: pointer;
+      padding: 0.25rem 0;
+      font-weight: 400;
+      color: #1f3a55;
+    }
+
+    .faq-mini summary:hover {
+      color: #0f263b;
+    }
+
+    .faq-mini p {
+      margin: 0.4rem 0 0.3rem 1rem;
+      color: #3d5771;
+    }
+
+    /* 响应式细节 */
+    @media (max-width: 560px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+      .page-wrap {
+        padding: 1.2rem 1rem 2rem;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .intro-grid {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .intro-card {
+        flex: 1 1 auto;
+      }
+    }
+
+    @media (min-width: 720px) {
+      .hero {
+        padding: 2.8rem 1rem 2rem;
+      }
+      .bg-card {
+        padding: 2rem 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- 首页横幅 -->
+  <div class="hero">
+    <h1>JRS直播 · 一份安静的观赛入口</h1>
+    <div class="sub">不是每个网站都需要喧哗，稳定与清爽同样珍贵</div>
+    <span class="banner-tag">杂志专题 · 从容观赛</span>
+  </div>
+
+  <!-- 背景说明卡片 -->
+  <div class="bg-card">
+    <h2>背景 · 为什么是它</h2>
+    <p>对于习惯在电脑或手机上看体育赛事的朋友来说，<strong>JRS直播</strong> 这个名字常常出现在推荐列表里。它不是一个新平台，却凭借多年积累的稳定性，成为不少人默认的备选方案。</p>
+    <p>没有夸张的弹窗，没有频繁的跳转——这听起来很基本，但实际体验中，能做到这些的网站并不多。从篮球到足球，从五大联赛到各类锦标赛，它的频道清单始终保持着更新节奏。</p>
+  </div>
+
+  <!-- 三段自然介绍 (杂志专题式) -->
+  <div class="intro-grid">
+    <div class="intro-card">
+      <div class="card-icon">📡</div>
+      <h3>稳定的连接逻辑</h3>
+      <p>页面结构轻量，加载速度在多数网络环境下表现良好。不需要复杂的设置，打开即可看到正在进行的比赛列表。对于临时想找一场直播的人来说，这种低门槛非常重要。</p>
+    </div>
+    <div class="intro-card">
+      <div class="card-icon">🧭</div>
+      <h3>清晰的频道布局</h3>
+      <p>频道按联赛和赛事分类，标识明确。即使你对某些缩写不熟悉，也可以快速定位到想看的场次。没有冗余的推荐流干扰，界面保持了资讯页应有的简洁感。</p>
+    </div>
+    <div class="intro-card">
+      <div class="card-icon">📱</div>
+      <h3>移动端同样顺手</h3>
+      <p>许多用户会在通勤或碎片时间打开手机查看比分或直播。该站对移动屏幕的适配做得自然——字体大小、按钮间距、横向滚动都经过基础优化，不需要频繁放大或缩小。</p>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要 (点缀章节) -->
+  <div class="faq-mini">
+    <h4>一些常见问题 · 简短回答</h4>
+    <details>
+      <summary>是否需要注册或登录？</summary>
+      <p>不需要。直接进入即可浏览和观看大部分直播内容，没有强制账户体系。</p>
+    </details>
+    <details>
+      <summary>直播源是否稳定？</summary>
+      <p>整体稳定性在同类网站中属于中上水平。偶尔遇到源失效时，通常会有备用线路提示，可以手动切换。</p>
+    </details>
+    <details>
+      <summary>有没有手机App版本？</summary>
+      <p>目前主要以网页形式提供服务，移动浏览器体验已经做了适配，多数用户反映够用。</p>
+    </details>
+  </div>
+
+  <!-- 页尾访问提示 (自然嵌入链接) -->
+  <div class="footer-note">
+    <p>如果你希望找一个风格干净、长期可用的体育直播入口，可以试试 <a href="https://m-home-jrs.com">JRS直播</a>，它或许就是你一直在找的那个稳定角落。</p>
+    <span class="fine-print">杂志式介绍 · 信息更新于最近整理 · 仅供客观参考</span>
+  </div>
+
+</div>
+</body>
+</html>
